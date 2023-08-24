@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD App</title>
+</head>
+<body>
+<h1>CRUD App</h1>
+
+<!-- Formulario para Crear/Actualizar -->
+<form th:action="@{/save}" th:object="${item}" method="post">
+    <input type="hidden" th:field="*{id}" />
+    <label for="name">Nombre:</label>
+    <input type="text" th:field="*{name}" required />
+    <label for="description">Descripción:</label>
+    <textarea th:field="*{description}" required></textarea>
+    <button type="submit">Guardar</button>
+</form>
+
+<!-- Tabla para Leer/Eliminar -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.description}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${item.id})}">Editar</a>
+            <a th:href="@{/delete/{id}(id=${item.id})}" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
