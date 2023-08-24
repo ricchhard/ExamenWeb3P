@@ -1,12 +1,13 @@
 # ExamenWeb3P
-API de Tareas
+##API de Tareas
 La API de Tareas es una API RESTful que permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre tareas.
 
-Acceso a la API
+##Acceso a la API
 La API se puede acceder a través de la siguiente URL base:
 
 http://localhost:8080/api/tasks
-Operaciones CRUD
+
+##Operaciones CRUD
 Obtener todas las tareas
 Solicitud HTTP: GET Ruta: /api/tasks
 
